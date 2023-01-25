@@ -1,0 +1,207 @@
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%               Libraries             %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{IEEEtran}
+\usepackage[utf8]{inputenc} % Türkçe karakterler
+\usepackage[T1]{fontenc} % Türkçe heceleme için
+\usepackage[turkish,shorthands=:!]{babel} % Türkçe bölüm, şekil, tablo vb. isimler
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{minted}
+
+
+\renewcommand\IEEEkeywordsname{Anahtar kelimeler}% Dokümanın türkçesi için gerekli
+
+\begin{document}
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%          Document Content           %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------   TITLE   ---------------------------------------------
+
+\title{DEEP LEARNING}
+
+%--------------------------------------   AUTHOR   --------------------------------------------
+
+\author{\\Arda Yakakayı, 19253519 --- ayakakayi17@posta.pau.edu.tr}
+
+%--------------------------------------   SIGN   ---------------------------------------------
+
+\markboth{PAÜ Bilgisayar Mühendisliği, CENG 104 - Bilgisayar Mühendisliği Semineri}{\@title}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     GENERAL LOOK    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{abstract}
+        
+            Yapay Zeka ve Makine Öğrenmesi şu anda en popüler konulardandır.Peki yapay zeka ve derin öğrenme nedir? Yapay Zeka, bilgisayarın veya bilgisayar kontrolündeki bir robotun çeşitli faaliyetleri zeki canlılara benzer şekilde yerine getirme kabiliyetidir. Buna karşılık derin öğrenme ise yapay sinir ağlarının ve insan beyninden ilham alan algoritmaların veriden öğrendiği bir makine öğreniminin alt kümesidir.Makine öğrenimine geçişin sağlanması ile akla gelen sorulara ilk kez 1950 yılında Alan Turing ile rastlanmıştır.Ortaya çıkan Turing Makinesi ile Bilgisayar Biliminin ilk adımı atılmıştır.Yapay Sinir Ağları'na değinecek olursak bilgisayarın gerekli işlemleri hızlı yapabilmesini sağlamak amacıyla ortaya çıkmıştır ve tıpkı insan beyni gibi nöronlardan oluşur. Tüm nöronlar birbirine bağlıdır ve çıktıyı etkilemektedir. Nöronların giriş, gizli ve çıktı katmanları vardır. Yapay sinir ağ modelleri ise tek katmanlı ve çok katmanlı algılayıcılar, ileri beslemeli ve geri beslemeli yapay sinir ağlarıdır. Derin öğrenmede kullanılan tekniklerin yanı sıra belli başlı diller ve frameworkler vardır.En başta bahsettiğimiz gibi derin öğrenmenin popülerleşmesiyle birlikte derin öğrenme ile ilgili belli başlı çalışmalar (yapılan kan testleri, gerçeğe yakın yüzler elde edilmesi gibi) yapılmaya başlanmıştır. Türkiye'de ise derin öğrenme ASELSAN'la önem kazanmıştır.
+    \end{abstract}
+    \vspace{15pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     KEYWORDS     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{IEEEkeywords}
+        	Ağ Saldırısı, Akson, Algoritma, Besleme, Bigdata, Bulut Servisi, Dartmouth, Dentrit, Derin Öğrenme, Diferansiyel Gizlilik, Fonksiyon, Framework, GPU, İnternet, Java, Javascript, Lisp, Makine, Makine Öğrenmesi, Nöron,Proses, Python, R Programming, Sinaps, Sinir Ağları, Spam, Veri, Yapay Zeka, Zeka
+    \end{IEEEkeywords}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{Giriş}
+        \label{sec:giris}
+            Deep Learning (Derin Öğrenme) konusu, Deep Learning kavramının tanımlanması ile başlanılıp kısaca açıklanarak birçok alt içerik belli bölümlerde incelenecektir. Bölüm \ref{sec:tanim} Deep Learning'in ne olduğunu ve nerelerde kullanıldığını açıklamaktadır. Bölüm \ref{sec:yapayzekatarihce} Deep Learning kavramından önce yapay zekaya değinmekle birlikte Bölüm \ref{sec:yapaysinir} Yapay Sinir Ağları'nı ele almaktadır. Bölüm \ref{sec:Onemi} Deep Learning'in önemini kısaca açıklar ve akabinde Bölüm \ref{sec:yeniteknikler} kullanılan yeni tekniklerden bahsetmektedir. Bölüm \ref{sec:frameworkler} Deep Learning'de kullanılanlardan bahsederken son olarak Bölüm \ref{sec:PopulerlesmeNedeni} Deep Learning'in popülerleşmesiyle ilgili kısa bir bilgi vermekle beraber Deep learning ile ilgili çalışmalar hakkında bilgiler vermektedir.\vspace{10pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \section{Deep Learning Nedir ve Nerelerde Kullanilir? }
+        \label{sec:tanim}
+            Makinelerin dünyayı algılama ve anlamasına yönelik yapay zeka geliştirmede en popüler yaklaşım olan derin öğrenmede şu anda anlamayla ilgili belirli görevlere odaklanılmış olup birçok başarı elde edilmiştir. Derin öğrenme yüz, plak ve ses tanıma sistemlerinde, parmak izi ve iris okuyucularda,sürücüsüz arabalarda kullanılmaktadır.\vspace{10pt}
+            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \section{Deep Learning Kavramından Önce...}
+        \label{sec:yapayzekatarihce}
+            Makine\footnote{makine kavramı en basit tanımıyla herhangi bir enerji türünü,baska bir enerji türüne dönüstürmek,belli bir güçten yararlanarak bir isi yapmak veya etki olusturmak için,disliler,yataklar ve miller gibi çesitli elemanlardan olusan düzenekler bütünüdür.} Gücüne geçişin sağlanması akla yeni sorular, yeni meraklar getirmiştir. Bu soruların somut haline 1950 yılında Alan Turing ile rastlamış bulunmaktayız.Bir makalesindeki 'Can Machines Think' sorusuyla ve çalışma arkadaşlarıyla ortaya çıkardıkları Turing Makinesi ile Bilgisayar Biliminin doğmasına yol açmıştır. 
+            Makinelerin düşünebilecekleri düşüncesi, bilgisayarların oluşmasına sebebiyet vermiştir. İlk bilgisayarların bir kaç hesap işlemi dışında kapsamlı şeyler yapamaması Machine Learning kavramına ön ayak olmuştur.\vspace{10pt}
+            
+            \textbf{Yapay Zeka (Aritificial Intelligence)\footnote{Yapay Zeka'yı anlayabilmemiz için öncelikle Zeka kavramını anlamış olmamız gerekir.Zeka psikoloji biliminde zihnin ögrenme,ögrenilenden yararlanabilme,yeni durumlara uyabilme ve yeni çözüm yolları bulabilme yetenegi olarak tanımlanmaktadır.}:} Yapay zeka alanı; makinelerin deneyimle öğrenebileceği, insana gerek olmadan beceriler kazanabileceği makine öğrenmini kapsar.  Derin öğrenme ise, yapay sinir ağlarının ve insan beyninden ilham alan algoritmaların veriden öğrendiği bir makine öğreniminin alt kümesidir.Derin öğrenme algoritmaları ne kadar çok öğrenirse o kadar iyi performans gösterir.
+
+                \includegraphics[scale=0.300]{Sources/1.png}
+                \newline
+                \textbf{Şekil 1:}1950 yılında Alan Turing Mind Dergisinde yayımlamıs oldugu makalesinde, makinelerin düsünebileceginden bahsetmistir.\cite{AlanTuringMind}
+                \vspace{10pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{Yapay Sinir Ağları (Artificial Neural Networks) }
+        \label{sec:yapaysinir}
+            Bilgisayarın gerekli işlemleri insanlardan daha hızlı yapabilmesini sağlamak amacıyla ortaya çıkan bir bilgi işlem teknolojisidir.
+                \begin{center}
+                    \vspace{5pt} \hspace{-15pt}   
+                    \includegraphics[scale=0.800]{Sources/3.png} 
+                \end{center} \newline
+        \textbf{Şekil 2:}İnsan beynindeki nöronların çalışmaları taklit edilmiş (biyolojideki sinir sistemi) ve 'yapay sinir ağları' olarak isimlendirilmiştir.\newline
+        
+        Yapay sinir ağlarının yapısında yapay sinirler vardır ve bunlara \textbf{'proses'} denir. Prosesler:
+        \begin{itemize}
+            \item \textbf{Girdiler;} Dış dünyadan gelen bilgilerdir.
+            \item \textbf{Ağırlıklar;} Hücreye gelen bilginin önemi ve hücre üzerindeki etkisini gösterir.
+            \item \textbf{Toplama Fonksiyonu (Birleşme Fonksiyonu);} Hücreye gelen net bilgi hesaplar.
+            \item \textbf{Aktivasyon Fonksiyonu;} Hücereye gelen net bilgi işlenir.
+            \item \textbf{Çıktı;} Aktivasyon fonksiyonunun belirlediği çıktı değeridir.
+        \end{itemize}\vspace{5pt}
+                
+            \hspace{-10pt}
+            \begin{tabular}{|p{4cm}|p{4cm}|}\hline
+                
+                \multicolumn{2}{|c|}{{\tiny Biyolojik Sinir Sisteminin Yapay Sinir Sistemi Üzerinden Gösterimi}} \\
+                \hline
+                Biyolojik Sinir Sistemi   & Yapay Sinir Sistemi \\ \hline
+                Nöron & İşlemci Eleman \\ \hline
+                Dentrit & Toplama Fonksiyonu \\ \hline
+                Hücre Gövdesi & Transfer Fonksiyonu \\ \hline
+                Aksonlar & Yapay Nöron Çıkışı \\ \hline
+                Sinapslar & Ağırlıklar \\ \hline
+                \end{tabular}
+            \newline    
+            \textbf{Şekil 3:}\footnote{İlk yapay sinir ağı modeli 1943 yılında bir sinir hekimi olan Warren McCulloch ve bir matematikçi olan Walter Pitts tarafından Sinir Aktivitesinde Düşüncelere Ait Bir Mantıksal Hesap (A Logical Calculus of Ideas Immanent in Nervous Activity)  başlıklı makale ile ortaya çıkarılmıştır.} Sinir sistemi elemanlarının, Yapay Sinir Ağı modelindeki terminolojisi yukarıdaki tabloda belirtilmiştir.\cite{NetworkModel}
+              
+            
+            \vspace{15pt}    
+            Yapay sinir ağlarının özellikleri olarak doğrusal olmama, paralel çalışma, öğrenme, genelleme, eksik verilerle çalışma gibi maddeleri sıralayabiliriz.
+            Yapay sinir ağ modelleri:
+            \begin{itemize}
+                \item \textbf{Tek Katmanlı Algılayıcılar;} Sadece girdi ve çıktıdan meydana gelir.
+                \item \textbf{Çok Katmanlı Algılayıcılar;} Doğrusal olmayan, birbirine paralel olarak bağlanmış ağlar mevcuttur.
+                \item \textbf{İleri Beslemeli Yapay Sinir Ağları;} Çok katmanlı algılayıcılar gibi üç katmanı vardır.
+                \begin{itemize}
+                    \item Giriş Katmanı
+                    \item Gizli Katman
+                    \item Çıkış Katmanı
+                \end{itemize}
+        
+            Nöronların girişten çıkışa doğru tek yönlü bilgi akışı söz konusudur. 
+            \item \textbf{Geri beslemeli Yapay Sinir Ağları;} Çıktı ya da gizli katmanlarında oluşan çıktı tekrar girdi olarak verilebilmektedir.Böylece girişlerin hem ileri yönde hem geri yönde beslenmesi gerçekleşir.
+        \end{itemize}
+        
+        \hspace{6}
+        Yapay sinir ağları; trafik konrolü, sağlık hizmetleri, istatistiksel tahmin yöntemleri gibi alanlarda kullanılmasına karşın en yaygın kullanım alanı insansı robotlardır.
+        \vspace{10pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \section{Deep Learning'in Önemi }
+        \label{sec:Onemi}
+            Derin öğrenme; endüstriyel uzmanların, konuşma, görüntü tanıma ve doğal dil işleme gibi yıllar önce imkansız olan zorlukların üstesinden gelmelerini sağladı. Derin öğrenme, donanım alanındaki gelişme nedeniyle yapay zekanın geleceği olarak da düşünülebilir.
+            \vspace{10pt}
+       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 6     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    
+    \section{Deep Learning'de Kullanılan Yeni Teknikler }
+        \label{sec:yeniteknikler}
+            Diferansiyel Gizlilik ile Derin Öğrenme tekniğini ele alırsak modellerin eğitimi kitle kaynaklı ve hassas bilgiler içeren büyük, temsili veri kümeleri gerektirir. Modeller bu veri kümelerinde özel bilgiler açığa çıkarmamalıdır.Ayrıca bu teknikte mütavazi ve yönetilebilir bir bütçeyle derin sinir ağları eğitilebilir. Ağ Saldırı Tespitiyle Derin Öğrenme tekniğinde; saldırı tespit analizleri, ağın durumunu almak gibi güvenlik olaylarından bahsedilebilir.Biyomedikal Görüntülerde Derin Öğrenmeye bakacak olursak mevcut yöntemler ile tek katmanlı görüntüler üzerinden işlem yapılıyorken, derin öğrenme modeliyle çok katmanlı görüntüler üzerinden performansı yüksek sonuçlar alınabilmektedir.
+            \vspace{10pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 7     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \section{Deep Learning'de Kullanılanlar}
+        \label{sec:frameworkler}
+            Derin Öğrenmede kullanılan programlama dilleri: \cite{ProgrammingLanguages}
+            \begin{itemize}
+               \item Python
+               \item R Programming
+               \item Java
+               \item Lisp
+               \item JavaScript
+            \end{itemize}
+            
+            \hspace{10}Derin Öğrenmede kullanılan frameworkler:
+            
+            \begin{itemize}
+                \item Caffe
+                \item Torch
+                \item Theano
+                \item TensorFlow
+                \item DL4J
+            \end{itemize}
+    
+            \begin{center}
+            \hspace{-35pt}   
+            \includegraphics[scale=0.08]{Sources/2.png} 
+            \end{center}
+            \textbf{Şekil 4: }Derin Öğrenme alanında en çok tercih edilen 4 dilin karşılaştırılması
+            \vspace{15pt}
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 8     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \section{Deep Learning Neden Bu Kadar Popülerleşti ve Deep Learning ile İlgili Çalışmalar}
+        \label{sec:PopulerlesmeNedeni}
+            Derin öğrenme, modellerin daha derin ve karmaşık hale gelmesi, veri miktarının artması, GPU'lar ve işlem gücünün artması ve derinliğin artması sayesinde bu kadar popülerleşti.Deep Learnin ile ilgili çalışmalara örnek olarak; 256 Hastanın kalp Mrı Kan testleri 30.000den farklı kalp atışıyla ölçülerek yapılan bir testte hastanın kalp krizi geçirme ihtimalinin hesaplanması amaçlanması ve IBM tarafından geliştirilen makinenin doğruluk oranı \%80 olarak sonuçlanması, Deep Learning sayesinde kaynak ve hedef olarak belirlenen yüzler bir araya getirilmesiyle gerçeğe yakın yüzler elde edilmesi örnek olarak verilebilir.Türkiye'de ise yapay zeka ses tanıma ve görüntü işleme gibi uygulama alanları ile ASELSAN’da önem arz etmektedir. Mathworks Graphics'in geliştirdiği MATLAB yazılımı ASELSAN'da kontrol, görüntü işleme, sinir ağları, genetik algoritma gibi alanları kapsayan tasarım faaliyetlerinde yaygın olarak kullanılmaktadır.
+
+        \begin{center}
+            \includegraphics[scale=0.2]{Sources/1.3.png} 
+        \end{center}
+
+            \textbf{Şekil 5: }Mathworks tarafından geliştirilen MATLAB yapay zeka da dahil olmak Makine Öğrenmesi,simulasyon,Lineer Denklem çözümlemeleri gibi pek çok alanda yaygın bir şekilde kullanılmaktadır.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%              KAYNAKCA               %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \bibliographystyle{plain}%Kaynak biçimi
+        \bibliography{kaynak}%Kaynakları otomatik ekler
+            
+            
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%             END DOCUMENT            %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \end{document}
+        
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%           Prepared By ALOHA         %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

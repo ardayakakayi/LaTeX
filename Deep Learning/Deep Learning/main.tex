@@ -1,0 +1,1022 @@
+\documentclass{beamer}                                                                                          %
+\usepackage{graphicx}                                                                                           %
+\usepackage{ragged2e}                                                                                           %
+\usepackage[utf8]{inputenc}                                                                                     %
+\graphicspath{ {./DL/} }                                                                                        %
+\usepackage[dvipsnames]{xcolor}                                                                                 %
+\usepackage[rightcaption]{sidecap}                                                                              %
+\usepackage{wrapfig}                                                                                            %
+\usepackage[export]{adjustbox}                                                                                  %
+\usepackage{amssymb}                                                                                            %
+\usepackage{pifont}                                                                                             %
+\usepackage[english]{babel}                                                                                     %
+\usepackage{parskip}                                                                                            %
+\usepackage{indentfirst}                                                                                        %       Libraries 
+\usepackage{media9}   
+\usepackage{comment}                                                                                            %
+\usepackage[utf8]{inputenc} % Türkçe karakterler                                                                %        
+\usepackage[T1]{fontenc} % Türkçe heceleme için                                                                 %
+\usepackage[turkish,shorthands=:!]{babel} % Türkçe bölüm, şekil, tablo vb. isimler                              %
+\usepackage{minted} % Kaynak kodları gösterebilmek için kullanılır. Python pygments kütüphanesine ihtiyaç duyar.%
+\usepackage{hyperref} % Referanslara tıklayarak geçiş yapmayı sağlar.%                                          %
+\hypersetup{                                                                                                    %
+    colorlinks=true,                                                                                            %
+    linkcolor=blue,                                                                                             %
+    filecolor=magenta,                                                                                          %
+    urlcolor=myred1,                                                                                            %
+    pdftitle={Sharelatex Example},                                                                              %
+    bookmarks=true,                                                                                             %
+    pdfpagemode=FullScreen,                                                                                     %
+    }                                                                                                           %
+                                                                                                                %
+\urlstyle{same}                                                                                                 %
+%---------------------------------------------------------------------------------------------------------------%
+                                                                                                                %
+\setlength{\parindent}{0pt}                                                                                     %
+\setlength{\parskip}{0 pt}                                                                                      %
+\definecolor{myred1}{RGB}{138,0,0}                                                                              %
+                                                                                                                %
+\mode<presentation>                                                                                             %
+{                                                                                                               %
+	\usetheme{Boadilla}         % or try Darmstadt, Madrid, Warsaw, ...                                         %       Page settings
+	\usecolortheme{beaver}      % or try albatross, beaver, crane, ...                                          %
+	\usefonttheme{structuresmallcapsserif}  % or try serif, structurebold, ...                                  %
+	\setbeamertemplate{frametitle}[default][center]                                                             %
+	\setbeamertemplate{navigation symbols}{}                                                                    %
+	\setbeamertemplate{caption}[numbered]                                                                       %
+}                                                                                                               %
+                                                                                                                %
+%---------------------------------------------------------------------------------------------------------------%
+\begin{center}.                                                                                                  %
+\begin{figure}                                                                                                  %
+    \vspace*{-14mm}                                                                                             %
+    \hspace*{-18.5 pt}                                                                                          %
+    \centering                                                                                                  %
+    \includegraphics[scale=0.216]{DL/Cover.png}                                                                 %
+\end{figure}                                                                                                    %       Author informations (name,presentation theme                                                                                                                  %       group name etc.)
+\end{center}                                                                                                    %
+\title[\color{myred1}Deep Learning]{DEEP LEARNING (DERİN ÖĞRENME)} % Örn: Yapay Zeka                            %
+                                                                                                                %
+\institute[ALOHA]{}%Öğrenci numaraları bu kısma girilecek. \inst{} normalde farklı bir işlev için kullanılıyor  %
+%fakat burada numaraları girmek için kullanıyoruz.                                                              %
+\date{06.04.2020} % Bu kısma sunum tarihi girilecek (09.02.2018 gibi)                                           %
+%---------------------------------------------------------------------------------------------------------------%
+\begin{document}
+    \begin{frame}
+	    \titlepage
+   \end{frame}
+%--------------------------------   Uyarı!! --------------------------------------------
+\begin{frame}{Sunumumuza Başlamadan Önce}
+    \centering
+    \color{myred1}\ding{125} \color{black}Sunum sırasında interaktif medyalara yer verilmiştir.\par \vspace{10}
+    Videoların oynatılması için \color{myred1} \ding{228} \color{black}simgesine tıklamanız yeterli olacaktır.
+    Büyütülmesi gerektiğini düşündüğünüz veya yakından bakmak istediğiniz resimlerimiz için büyütülmesi mümkün olan resimlerimizin altlarında yer alan   \color{myred1}\ding{111} \color{black}simgesine tıklamanız yeterli olacaktır.\par \vspace{10}
+    Sunum sırasında aklınıza gelen soruları not etmeniz,başta konuların dağılmaması ve ileride cevap bulabilecek olmanız adına önemlidir.  İlginizden dolayı teşekkür ediyor iyi sunumlar diliyoruz... \color{myred1}\ding{126} \color{black}\par \vspace{15} \textbf{\color{myred1} \huge ALOHA\color{black}}
+    
+\end{frame}
+%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&   İÇİNDEKİLER     &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&	
+	\begin{frame}{İÇİNDEKİLER}
+	        \color{myred1}\ding{224} \color{black}\textbf{Deep Learning (Derin Öğrenme) Nedir?} \par \vspace{5}
+	        \color{myred1}\ding{224} \color{black}\textbf{Deep Learning Nerelerde Kullanılır?} \par \vspace{5}
+    	    \color{myred1}\ding{224} \color{black}\textbf{Yapay Zeka (Artificial Intelligence) Nedir?} \par \vspace{5}
+    	    \color{myred1}\ding{224} \color{black}\textbf{Yapay Zeka'nın Yaşam Öyküsü} \par \vspace{5}
+    	    \color{myred1}\ding{224} \color{black}\textbf{Yapay Sinir Ağları (Artificial Neural Networks)} \par \vspace{5}
+    	    \color{myred1}\ding{224} \color{black}\textbf{Deep Learning Kullanımında Çıkan Yeni Teknikler} \par \vspace{5}
+    	    \color{myred1}\ding{224} \color{black}\textbf{Deep Learning'in Önemi} \par \vspace{5}
+    	    \color{myred1}\ding{224} \color{black}\textbf{Deep Learning Neden Bu Kadar Popülerleşti?} \par \vspace{5}
+    	    \color{myred1}\ding{224} \color{black}\textbf{Deep Learning İle İlgili Çalışmalar}
+	\end{frame}
+%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    
+    \begin{frame}{}
+        \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-18.5 pt}
+                \centering
+                \includegraphics[scale=0.55]{DL/coverderinogrenmenedir.png}
+            \end{figure}
+        \end{center}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Deep Learning (Derin Öğrenme) Nedir?}
+        \justifying
+	        \color{myred1}\ding{224} \color{black}Endüstri ve akademik çevrelerdeki veri bilimciler görüntü sınıflandırma, video analizi, konuşma tanıma ve doğal dil öğrenme süreci dahil olmak üzere çeşitli uygulamalarda çığır açan gelişmeler elde etmek üzere makineyle öğrenmede GPU’ları (Grafik İşlemci Ünitesi) kullanmaktadır. Özellikle, büyük miktarlarda etiketlenmiş eğitim verilerinden özellik saptama yapabilen sistemler oluşturmak için ileri teknoloji, çok seviyeli “derin” sinir ağların kullanılması olan Derin Öğrenme, önemli derecede yatırım ve araştırmanın yapıldığı bir alandır. 
+	\end{frame}
+	
+%----------------------------------------    
+    
+    \begin{frame}
+        \justifying
+            \color{myred1}\ding{224} \color{black}Derin öğrenme, makinelerin dünyayı algılama ve anlamasına yönelik yapay zekâ geliştirmede en popüler yaklaşımdır.\par \vspace{15}
+            \color{myred1}\ding{224} \color{black}Şu anda ağırlıklı olarak belirli anlamayla ilgili görevlere odaklanılmış ve bu alanlarda birçok başarı elde edilmiştir.\par \vspace{15}
+            \color{myred1}\ding{224} \color{black}
+            Derin Öğrenme algoritmalarının makine öğrenmesindeki var olan algoritmalardan ayrılan yönü; çok yüksek miktarda veriye ve karmaşık yapısı ile de bu yüksek veriyi işleyebilecek çok yüksek hesaplama gücü olan donanımlara ihtiyaç duymasıdır. 
+    \end{frame}
+    
+%---------------------------------------- 
+	
+	\begin{frame}{Deep Learning Nerelerde Kullanılır?}
+	    Derin Öğrenme genellikle zorlu ses ve görüntü tanıma işlemleri için kullanılmaktadır. Bunlar; \par \vspace{10}
+		    \color{myred1}\ding{224} \color{black}Yüz tanıma sistemleri\par \vspace{7}
+			\color{myred1}\ding{224} \color{black}Plaka tanıma sistemleri\par \vspace{7}
+			\color{myred1}\ding{224} \color{black}Parmak izi okuyucular\par \vspace{7} 
+			\color{myred1}\ding{224} \color{black}İris okuyucular\par \vspace{7} 
+			\color{myred1}\ding{224} \color{black}Ses tanımlama sistemleri\par \vspace{7} 
+			\color{myred1}\ding{224} \color{black}Sürücüsüz arabalar  
+    \end{frame}
+    
+%----------------------------------------
+	
+	\begin{frame}{Deep Learning Nerelerde Kullanılır?}
+        \justifying
+            \color{myred1}\ding{224} \color{black}Spam (istenmeyen) e-posta tespitinde \par \vspace{7}
+    		\color{myred1}\ding{224} \color{black}DARPA, insansız hava araçlarının düşman toprakları üzerinde elde ettiği görüntü ve videoların karargâha aktarımıyla oluşturulan büyük veri (BigData) yığınıyla baş edebilmek maksadıyla daha iyi bir istihbarat katmanı geliştirilmesi kapsamında 2009 yılında derin öğrenme çalışmalarına destek vermeye başlamıştır. 
+    \end{frame}
+    
+%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    
+    \begin{frame}
+        \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-18.5 pt}
+                \centering
+                \includegraphics[scale=0.55]{DL/coveryapayzekanedir.png}
+            \end{figure}
+        \end{center}
+    \end{frame}
+    
+%---------------------------------------- 
+	
+	\begin{frame}{\color{myred1}
+    		    Yapay Zeka kavramının doğduğu yer;  Doğa \color{black}}
+	    \begin{center}
+		    \justifying
+		        \begin{figure}
+    		        \vspace{-5}
+    		        \centering
+    		        \includegraphics[scale=0.04]{DL/AI.jpg}
+		        \end{figure}
+		        \vspace{20}
+                \color{myred1}\ding{224} \color{black}Doğa pek çok zaman insanlara ilham kaynağı olmuştur.\par \vspace{10}
+                \color{myred1}\ding{224} \color{black}İnsanların var oldukları zamandan beri hayatlarını kolaştırmak gibi bir amacı olmuş ve bu amaçlar doğrultusunda pek çok şey başarmışlardır.Havada süzülmekte olan bir uçaktan tutun,ışığa duyarlı bir sensöre kadar pek çok buluş doğadan ilham alınarak yapılmıştır ve bu durum teknolojiye yön vermiştir.
+
+        \end{center}  
+    \end{frame}
+    
+%----------------------------------------
+    \begin{frame}{Makine Nedir?}
+        \justifying
+            \color{myred1}\ding{224} \color{black}Bununla birlikte ortaya çıkan makine kavramı en basit tanımıyla  herhangi bir enerji türünü,başka bir enerji türüne dönüştürmek,belli bir güçten yararlanarak bir işi yapmak veya etki oluşturmak için,dişliler,yataklar ve miller gibi çeşitli elemanlardan oluşan düzenekler bütünüdür.\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}Makineler belirli bir işin gerçekleştirilmesinde ya da fizilksel bir işlevin yerine getirilmesinde, insan ya da hayvan gücüne yardımcı olmak veya tümüyle onların yerini almak için geliştirilmişlerdir.
+
+    \end{frame}
+    
+%---------------------------------------- 
+  
+    \begin{frame}{Zeka Nedir?}
+        \justifying
+        
+        “Zeka,zihnin öğrenme,öğrenilenden yararlanabilme,yeni durumlara uyabilme ve yeni çözüm yolları bulabilme yeteneğidir.”
+    \end{frame}
+    
+%----------------------------------------  
+    \begin{frame}{ Zeka ilham ve makineler arasında bir ilişki var mıdır?}
+        \justifying
+            \color{myred1}\ding{224} \color{black}Alan Turing 1950 yılında MIND dergisinde yayınlamış olduğu makalesinde okuyucularına  “Can Machines Think?” diğer bir deyişle “Makineler Düşünebilir Mi?" sorusunu yöneltmiştir.\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}Sorunun devamında makine ve düşünme kelimelerinin tek tek kendi anlamları arasında incelenmesini istemiştir.\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}İnsan zekası ilham alınmış ve makinelerin bir şeyler öğrenebileceği hatta düşünebileceği fikri ortaya çıkmıştır.
+    \end{frame}
+    
+%---------------------------------------- 	
+
+	\begin{frame}{Can Machines Think?}
+        \begin{center}
+            \begin{figure}
+                %\vspace*{-7mm}
+                \hspace*{-14.5 pt}
+                \centering
+                \includegraphics[scale=0.468]{DL/mind.png}
+            \end{figure}
+        \end{center}
+        \centering
+        \color{myred1}Şekil 1:\color{black}\textbf{ 1950 yılında Alan Turing Mind Dergisinde yayımlamış olduğu makalesinde, makinelerin düşünebileceğinden bahsetmiştir.}
+	\end{frame}
+	
+%----------------------------------------
+    
+    \begin{frame}{Yapay Zeka Nedir?}
+        \justifying
+            Buradan hareketle  \textbf{\color{myred1}Yapay Zeka\color{black}}, görevleri yerine getirmek için insan zekasını taklit eden ve topladıkları bilgilere göre yinelemeli olarak kendilerini iyileştirebilen sistemler veya makinelerdir.
+
+    \end{frame}
+    
+%---------------------------------------- 	
+	
+	\begin{frame}{Yapay Zeka Kavramının Doğuşu}
+        \begin{center}
+		\justifying
+		    \color{myred1}\ding{224} \color{black}Yapay zeka düşünce olarak binlerce yıl öncesinde ortaya çıkmıştır.Yunan mitolojisinde yer alan tanrı Daedelus yapay-insan yapma teşebbüsünde bulunmuştur.\par \vspace{15}
+            \color{myred1}\ding{224} \color{black}Ancak esas çalışmalar ve fikirler 1884 yılında Charles Babbage tarafından yürütülmeye başlamıştır.\par \vspace{15}
+            \color{myred1}\ding{224} \color{black}Charles bazı zeki davranışlar göstermesini istediği bir takım mekanik maki-\par neler üzerinde deneyler yapmaktaydı.
+
+	    \end{center}
+	\end{frame}
+	
+%---------------------------------------- 
+    
+    \begin{frame}{Yapay Zeka'nın yaşam öyküsü}
+        \justifying
+            \color{myred1}\ding{224} \color{black}1950 yılına kadar başarılı bir sonuç alınamamış ve makinelerin insan kadar zeki olamayacağı kanaatine varılmıştır.\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}1950 yılında Alan Turing bu fikri tekrar ortaya atmıştır.\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}Yapay Zeka'nın doğuşuna yol açan gerçek etmen 1943’ e doğru bilgisayarların ortaya çıkmasıdır.Bu dönemden itibaren bazı öncüler bu makineleri biraz zeka ile donatma meselesini ele aldılar.\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}1950 yılında Alan Turing bir makinenin zeki olup olmadığına karar verme olanağı tanıyan bir test ortaya koymuştur. Temel kuralı tartışmalı olmakla birlikte bu test, bu dönemden itibaren bilgisayarların zekasına verilen önemi göstermektedir.
+    \end{frame}
+
+%---------------------------------------- 
+	
+	\begin{frame}{Yapay Zeka'nın Yaşam Öyküsü}
+		\justifying
+		    \textbf{\color{myred1}Karanlık dönem:\color{black}}\par \vspace{20}
+            \color{myred1}\ding{224} \color{black}1965-1970 yılları arasını kapsayan bu dönemde çok az şeyin geliştirilebillmesi dönemin Karanlık Dönem olarak geçmesine yol açmıştır\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}Bilgisayar uzmanları filozof türünde bir  mekanizma geliştirmek için uğraştılar ve sadece verileri yüleyerek akıllı bilgisayarlar yapmayı umdular.\par \vspace{10}
+            \color{myred1}\ding{224} \color{black}Sonuç olarak bu dönem bekleme süreci olarak kalmıştır.
+    \end{frame}
+    
+%----------------------------------------  
+	
+	\begin{frame}{Yapay Zeka'nın Yaşam Öyküsü}
+		\justifying
+        \textbf{\color{myred1}Rönesans Dönemi 1970-1975\color{black}}\par \vspace{20}
+        \color{myred1}\ding{224} \color{black}Bu dönemde yapay zeka uzmanları başta hastalık teşhisi gibi sistemler geliştirmiş ve günümüzdeki bir çok  teknolojinin temelini atarak yeni bir süreç başlatmıştır.
+    \end{frame}
+    
+%---------------------------------------- 
+	
+	\begin{frame}{Yapay Zeka'nın Yaşam Öyküsü}
+		\justifying
+		    \textbf{\color{myred1}Ortaklık Dönemi:\color{black}}\par \vspace{20}
+            \color{myred1}\ding{224} \color{black}1975-1980 yıllarını kapsayan  bu süreç içerisinde Yapay Zeka araştırmacıları,dil,psikoloji gibi diğer bilim alanlarından da faydalanabileceklerini gördüler.
+    \end{frame}
+%----------------------------------------	
+
+	\begin{frame}{Hello World!}
+		\begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-6}
+                %\centering
+                \includegraphics[scale=0.3]{DL/whoami.png}
+            \end{figure}
+        \end{center}
+        \newline
+        \centering
+        Videoyu izlemek için tıklayın\par \vspace{20}
+        \href{https://photos.google.com/share/AF1QipOanOkXhLz9C5X_kh61wvsGNi-phA_41yC5fE5eXjFS5w6jn8pnFkd5bqR2HwiXhw/photo/AF1QipNa76j6r0109ueElky53K9bvK78ZFzhtqlvKcSd?key=cXFVZ0NxV1J0OXJQeHdQVkxmbDY4bDlUVzNlNTR3}{\huge \ding{228}}
+	\end{frame}
+	
+%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    
+    \begin{frame}{}
+        \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-18.5 pt}
+                \centering
+                \includegraphics[scale=0.55]{DL/coveryapaysiniraglari.png}
+            \end{figure}
+        \end{center}
+    \end{frame}
+    
+%----------------------------------------
+    
+    \begin{frame}{Ne Öğreneceğiz?}
+		    \color{myred1}1-\color{black}Tanım \par \vspace{5}
+		    \color{myred1}2-\color{black}Biyolojideki sinir sistemi/yapısı\par \vspace{5}
+		    \color{myred1}3-\color{black}Yapay sinir yapısı\par \vspace{5}
+		    \color{myred1}4-\color{black}Yapay sinir ağlarının özellikleri\par \vspace{5}
+		    \color{myred1}5-\color{black}Yapay sinir ağ modelleri\par \vspace{5}
+		        \hspace{10}\color{myred1}\ding{224} \color{black}Tek katmanlı algılayıcılar \hspace{10}\par \vspace{5}
+		        \hspace{10}\color{myred1}\ding{224} \color{black}Çok katmanlı algılayıcılar \par \vspace{5}
+		        \hspace{10}\color{myred1}\ding{224} \color{black}İleri beslemeli yapay sinir ağları \par \vspace{5}
+		        \hspace{10}\color{myred1}\ding{224} \color{black}Geri beslemeli yapay sinir ağları \par \vspace{5}
+            \color{myred1}6-\color{black}Kullanım alanları
+    \end{frame}
+    
+%----------------------------------------
+	
+	\begin{frame}{Tanım }
+	    \justifying
+		    İnsan beyninin bilgi işleme yeteneğinden esinlenerek ,insanların bilgisayarlardan daha hızlı yapabildiği işlemleri bilgisayarlarında daha hızlı yapabilmesini sağlamak amacıyla ortaya çıkmış bir bilgi işlem teknolojisidir.İnsan beyninde bulunan nöronların çalışmaları taklit edilmeye başlanmış ve böylelikle “yapay“ sinir ağları olarak isimlendirilmiştir.
+    \end{frame}
+    
+%----------------------------------------
+	
+	\begin{frame}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.75]{DL/Noron1.jpg}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 2:\color{black}\textbf{Yapay sinir ağı örneği}
+	\end{frame}
+	
+%----------------------------------------
+	
+	\begin{frame}{\centering Biyolojideki Sinir Sistemi}
+        \justifying
+        \color{myred1}\ding{224} \color{black}Bir sinir hücresine başka bir sinir hücresinden gelen uyarımlar, dentritler aracılığıyla hücre gövdesine taşınır ve diğer hücrelere aksonlarla iletilir. Uyarımların diğer sinir hücrelerine taşınabilmesinde sinaptik boşluklar (sinapslar) rol oynar.\par \vspace{25}
+        \color{myred1}\ding{224} \color{black}Sinaptik boşluk içerisinde yer alan sinaptik kesecikler uyarımların dentritler aracılığıyla diğer hücrelere geçmesini koşullayan elemanlardır.Tabi bu sırada sinaptik boşluğa salgılanan nöro-iletken madde sayesinde uyarımın diğer hücrelere geçmesi sağlanır.Hücrelere gelen uyarımlar sonrasında mevcut sinaptik ilişkiler değişir ya da o hücreyle yeni bir sinaptik ilişki kurulur.
+    \end{frame}
+    
+%----------------------------------------
+	
+	\begin{frame}{}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=1.2]{DL/nöron.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 3:\color{black}\textbf{ Nöron yapısı}
+	\end{frame}
+	
+%-----------------------------------------
+
+	\begin{frame}{Yapay Sinir Yapısı}
+	    Biyolojide bulunan sinir hücreleri gibi yapay sinir ağlarınında yapay sinirleri bulunmaktadır.Bunlara “proses“ denmektedir.Bunlar;\newline
+	        
+        	     \color{myred1}1-\color{black}Girdiler\par \vspace{5}
+        	     \color{myred1}2-\color{black}Ağırlıklar\par \vspace{5}
+        	     \color{myred1}3-\color{black}Toplama Fonksiyonu (Birleştirme Fonksiyonu)\par \vspace{5}
+        	     \color{myred1}4-\color{black}Aktivasyon Fonksiyonu\par \vspace{5}
+        	     \color{myred1}5-\color{black}Çıktı
+    \end{frame}
+    
+%---------------------------------------- 	
+	
+	\begin{frame}{}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.75]{Noron3.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 4:\color{black}\textbf{Yapay sinir ağı örneği}
+    \end{frame}
+    
+%----------------------------------------
+	
+	\begin{frame}{}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.90]{DL/Noron4.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 5:\color{black}\textbf{Yapay sinir ağı örneği}
+	\end{frame}
+	
+%----------------------------------------
+    
+    \begin{frame}
+	    \justifying
+            \color{myred1}
+		        I-Girdiler:\color{black}Dış dünyadan gelen bilgilerdir.Ağın ne öğrenmesi gerekiyorsa onunla ilgili örnekler yer alır.\newline \newline \color{myred1}II-Ağırlıklar:\color{black}Bir yapay sinir hücresine gelen bilginin önemini ve hücre üzerindeki etkisini gösterir.Örneğin \textbf{wi1 ağırlığımız} ve \textbf{xi1 girdimiz} olsun.\textbf{wi1}, \textbf{xi1} üzerindeki etkiyi göstermektedir.Ağırlıkların büyük ya da küçük olması onun önemli veya önemsiz olamsı anlamına gelmez.\newline \newline \color{myred1}III-Toplama Fonksiyonu:\color{black}Hücreye gelen net bilginin hesaplandığı kısımdır.Bunun için çeşitli toplama fonksiyonları bulunmaktadır.Burada her gelen bilgi kendi ağırlığıyla çarpılarak toplanır.Böylece ağa gelen net bilgi hesaplanmış olur.
+    \end{frame}
+    
+%----------------------------------------	
+	
+	\begin{frame}{}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.6]{islem.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 6:\color{black}\textbf{.................}
+	\end{frame}
+	
+%----------------------------------------
+    
+    \begin{frame}{}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.85]{DL/Noron5.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 7:\color{black}
+    \end{frame}
+    
+%----------------------------------------
+	
+	\begin{frame}
+		    \justifying
+		    \color{myred1}
+		    IV-Aktivasyon Fonksiyonu:\color{black}Bu kısımda hücreye gelen net bilgi işlenerek bir çıktı üretilir. Aktivasyon fonksiyonu olarak genelde doğrusal olmayan bir fonksiyon seçilir.Doğrusal olmayan bir fonksiyon seçilmesinin nedeni yapay sinir ağlarının \textbf{doğrusal olmama} özelliğinden kaynaklanmaktadır. Ayrıca seçilen fonksiyonun türevinin kolay hesaplanabilir olması dikkat edilmelidir. Eğer türevi kolay alınabilir fonksiyon seçilirse hesaplamaların yavaşlama durumunun önüne geçilmiş olunur.
+    \end{frame}
+    
+%----------------------------------------
+	
+	\begin{frame}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.8]{DL/Noron6.1.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 8:\color{black}
+    \end{frame}
+    
+%----------------------------------------
+
+	\begin{frame}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.8]{DL/Noron6.2.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 9:\color{black}
+    \end{frame}
+    
+%----------------------------------------
+
+	\begin{frame}
+		\justifying
+		\color{myred1}
+		V-Çıktı:\color{black}Aktivasyon fonksiyonu tarafından belirlenen çıktı değeridir.Bu çıktı ister dış dünyaya aktarılır istenirsede başka bir hücreye aktarımı sağlanır.\newline
+            \begin{figure}
+    	        \centering
+    	        \includegraphics[scale=0.3]{DL/Norontablo.png}
+    	        \centering
+	            \color{myred1}Şekil 10:\color{black}\textbf{ Biyolojik Sinir Sisteminin Yapay Sinir Sistemi Üzerinden 
+    	        Gösterimi}
+	        \end{figure}
+    \end{frame}
+    
+%----------------------------------------
+
+	\begin{frame}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale=0.7]{DL/5.Madde Noron7.png}
+	    \end{figure}
+	    \centering
+	    \color{myred1}Şekil 11:\color{black}
+    \end{frame}
+    
+%----------------------------------------	
+
+	\begin{frame}{Yapay Sinir Ağlarının Özellikleri }
+	        \color{myred1}\ding{224} \color{black} Doğrusal Olmama \hspace{65} \color{myred1}\ding{224} \color{black} Hata Toleransı ve Esneklik \par \vspace{25}
+		    \color{myred1}\ding{224} \color{black} Paralel Çalışma \hspace{77} \color{myred1}\ding{224} \color{black} Eksik Verilerle Çalışma \par \vspace{25}
+		    \color{myred1}\ding{224} \color{black} Öğrenme \hspace{105} \color{myred1}\ding{224} \color{black} Çok Sayıda Değişken ve Parametre\par \vspace{2} \hspace{180}Kullanma \par \vspace{15}
+		    \color{myred1}\ding{224} \color{black} Genelleme \hspace{100} \color{myred1}\ding{224} \color{black} Uyarlanabilirlik \par
+    \end{frame}
+    
+%----------------------------------------
+   
+    \begin{frame}{Yapay Sinir Ağ Modelleri}
+     	\color{myred1}
+     	    \vspace{1 pt}
+     	    1)Tek Katmanlı Algılayıcılar(Single Layer Neural Networks): \color{default} \newline \justifying Bu model sadece girdi ve çıktıdan meydana gelmektedir.Çıktı fonksiyonu doğrusaldır.\newline
+        \begin{wrapfigure}{l}{0.60\textwidth}
+            \vspace{0 pt}
+                \begin{center}
+                    \includegraphics[width=0.55\textwidth]{DL/Tek katman.png}
+                \end{center}
+            \vspace{-20pt}
+            \vspace{-10pt}
+        \end{wrapfigure}
+        \newline \newline \newline
+	    \color{myred1}Şekil 12:\color{black} \textbf{Eşik Değeri ismi verilen bir değer vardır.Bu değer çıktının 0 olmasını önler ve daima 1 değerini}\par \hspace{216}\textbf{alır}
+    \end{frame}
+    
+%----------------------------------------
+
+	\begin{frame}
+		\color{myred1}
+		    2)Çok Katmanlı Algılayıcılar(Multilayer Perceptron):\color{black} \newline \justifying Katmanlı algılayıcılara göre doğrusal olmayan bir yapısı vardır. Bunun yerine birbirlerine paralel olarak bağlanmış ağlar mevcuttur. İlk katman girdi katmanıdır ve probleme ilişkin bilgilerin yapar sinir ağına alınımını sağlar. En son katman ise çıktı ktmanıdır ve işlenen bilgilerin dış dünyaya çıkışını sağlar. Girdi katmanı ile çıktı katmanı arasında gizli katman bulunur. Bu katmanda  ileri yönlü hesaplamalar ve geri yönlü hata yayılımı yapılır.
+		        \begin{figure}
+	                \centering
+	                \includegraphics[scale=0.8]{DL/Çok Katmanlı Noron.png}
+	                
+	            \end{figure}
+	            \centering
+	            \color{myred1}Şekil 13:\color{black}\textbf{Çok Katmanlı Algılayıcılar}
+    \end{frame}
+    
+%---------------------------------------- 
+
+	\begin{frame}
+	    \justifying
+	    \color{myred1}
+	        3)İleri Beslemeli Yapay Sinir Ağları(Feedforward Neural Networks):\color{black} \newline Üç katman bulunmaktadır;\par \vspace{10}
+
+                \color{myred1}\ding{118} \color{black}Giriş Katmanı \par \vspace{5}
+                \color{myred1}\ding{118} \color{black}Gizli Katman \par \vspace{5}
+                \color{myred1}\ding{118} \color{black}Çıkış Katmanı \par \vspace{10}
+            Bu sinir ağlarında nöronlar girişten çıkışa doğru tek yönde ilerler (Tek yönlü bilgi akışı söz konusudur). Her katman ve seviyede 1 veya 1’ den fazla nöron(sinir hücresi) bulunabilmektedir.
+    \end{frame}
+    
+%----------------------------------------
+  
+    \begin{frame}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.4]{DL/Noron7.png}
+        \end{figure}\newline\centering
+        \color{myred1}Şekil 14:\color{black}
+    \end{frame}
+    
+%---------------------------------------- 
+
+	\begin{frame}
+	    \justifying
+	    \color{myred1}
+	        4)Geri Beslemeli Yapay Sinir Ağları(Feedback Neural Networks):\color{black} \newline 
+            Bu sinir ağlarında çıktı ya da gizli katmanda oluşan çıktı tekrar girdi olarak verilebilmektedir.Böylece girişler hem ileri yönde hem geri yönde beslenebilmektedir.
+            Geri beslemeli yapay sinir ağları doğrusal olmayan dinamik bir davranış sergilemektedir.
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=0.5]{DL/Noron8.png}
+                \end{figure}
+                \newline \centering
+                \color{myred1}Şekil 15:\color{black}
+    \end{frame}
+    
+%---------------------------------------- 
+   
+    \begin{frame}{Kullanım Alanları}
+        \renewcommand{\labelitem}{}
+        \renewcommand\labelitemii{$\square$}
+                \color{myred1}\ding{224} \color{black}Trafik kontrolünde \par \vspace{10}
+                \color{myred1}\ding{224} \color{black}Tıp ve sağlık hizmetlerinde \par \vspace{10}
+                \color{myred1}\ding{224} \color{black}İstatistiksel tahmin yöntemlerinde \par \vspace{10}
+                \color{myred1}\ding{224} \color{black}Endüstriyel problemlerin çözümlerinde \par \vspace{10}
+                \color{myred1}\ding{224} \color{black}Güç sistemleri yük akışı sistemlerinde \par \vspace{15}
+        Yapay sinir ağlarının en yaygın kullanım alanı şüphesiz insansı robotlardır.
+	\end{frame}
+    
+%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+   
+    \begin{frame}{}
+        \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-18.5 pt}
+                \centering
+                \includegraphics[scale=0.55]{DL/coverteknikler.png}
+            \end{figure}
+        \end{center}
+    \end{frame}
+    
+%---------------------------------------- 
+    
+    \begin{frame}{Deep Learning'de Kullanılan Yeni Teknikler}
+        \justifying
+        \color{myred1}\ding{224} \color{black}Diferansiyel Gizlilik ile Derin Öğrenme\par \vspace{15}
+        \color{myred1}\ding{224} \color{black}Ağ Saldırı Tespitiyle Derin Öğrenme\par \vspace{15}
+        \color{myred1}\ding{224} \color{black}Biyomedikal Görüntülerde Derin Öğrenme
+    \end{frame}
+    
+%----------------------------------------    
+    
+    \begin{frame}{Deep Learning'de Kullanılan Yeni Teknikler}
+	    \justifying
+    		\color{myred1}
+    		Diferansiyel Gizlilik ile Derin Öğrenme; \color{black} \newline
+                Yapay sinir ağlarına dayalı makine öğrenme teknikleri, çok çeşitli alanlarda olağanüstü sonuçlar elde etmektedir. Genellikle, modellerin eğitimi kitle kaynaklı ve hassas bilgiler içerebilen büyük, temsili veri kümeleri gerektirir.Modeller bu veri kümelerinde özel bilgileri açığa çıkarmamalıdır. Bu hedefe yönelik olarak, öğrenme için yeni algoritmik teknikler ve farklı gizlilik çerçevesinde gizlilik maliyetlerinin rafine bir analizi geliştiriyoruz. Uygulama ve deneylerimiz, konveks olmayan hedeflerle, mütevazi bir gizlilik bütçesi altında ve yazılım karmaşıklığı, eğitim verimliliği ve model kalitesinde yönetilebilir bir maliyetle derin sinir ağlarını eğitebileceğimizi göstermektedir.\par \vspace{50} 
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{}
+	    \justifying
+            \color{myred1} Ağ saldırı tespitiyle derin öğrenme; \color{black} \newline
+            Son zamanlarda, derin öğrenme, makine öğrenimi için taşıdığı potansiyel nedeniyle önem kazanmıştır. Bu nedenle, bazı örüntüleri tanıma veya sınıflandırma gibi birçok alanda derin öğrenme teknikleri uygulanmıştır. Saldırı tespit analizleri, ağın durum değerlendirmesini almak için güvenlik olaylarını izlemekten veri aldı. Birçok geleneksel makine öğrenme yöntemi izinsiz giriş tespiti için ileri sürülmüştür, ancak tespit performansını ve doğruluğunu geliştirmek gereklidir.
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{}
+	    \justifying
+    	    \color{myred1}Biyomedikal Görüntülerde Derin Öğrenme;\color{black} \newline Son zamanlarda görüntü işleme ile ilgili gelişmeler, hızla gelişen teknolojik sistemlerin ilerlemesinde katkıda bulunmuştur. Özellikle sağlık alanındaki görüntü işleme ile ilgili çalışmalar popülerliğini daha da artırmıştır. Gerek tıbbi görüntüler olsun gerekse diğer alandaki görüntüler olsun, mevcut yöntemler üzerinde başarı sağlatılmasına rağmen; derin öğrenme modeli, mevcut yöntemlere kıyasla zaman ve performans açısından daha fazla katkıda bulunan bir modeldir. 
+    \end{frame}
+    
+%----------------------------------------   
+   
+    \begin{frame}{}
+        \justifying
+	        Mevcut yöntemler ile tek katmanlı görüntüler üzerinden işlem yapılıyorken, derin öğrenme modeliyle, çok katmanlı görüntüler üzerinden performansı yüksek sonuçlar alınabilmektedir. Derin öğrenmenin en önemli özelliği, görüntü üzerindeki işlemleri tek bir sefer de işleme tabi tutan ve el ile girilmesi gereken parametreleri kendi kendine keşif edebilmesidir.
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{}
+	    \justifying
+    	   Teknoloji firmalarının da derin öğrenmeye yönelmesi, kendi aralarında rekabet gücünü artırdığı gibi, bilimsel anlamda derin öğrenme üzerine kurdukları yöntemler, mevcut yöntemlere göre daha fazla tercih edilmeye başlanılmıştır. Veri kümesi erişimi sınırlı olan alanlardan biri olan biyomedikal alanında veri kümelerinin son zamanlarda hızlı bir şekilde elde edilmesi bu alandaki görüntü işleme çalışmalarına, derin öğrenme modeliyle beraber daha çok katkıda bulunacağı öngörülmektedir.
+    \end{frame}
+    
+%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+    
+    \begin{frame}{}
+        \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-18.5 pt}
+                \centering
+                \includegraphics[scale=0.55]{DL/covernedenpopulerlesti.png}
+            \end{figure}
+        \end{center}
+    \end{frame} 
+    
+%----------------------------------------   
+    
+    \begin{frame}
+        \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-6}
+                %\centering
+                \includegraphics[scale=0.3]{DL/cover1.png}
+            \end{figure}
+        \end{center}
+        \newline
+        \centering
+        Videoyu izlemek için tıklayın\par \vspace{20}
+        \href{https://photos.google.com/share/AF1QipOpKp7BjBs00qE-n09qDtEPVdiAzcuJFpnHOmVW4NsrG5qtrSSZYkWUAuuBawb9LQ/photo/AF1QipPccbDKgPmdqFLUeoS_cpXov0966ba-Rmu5XGsM?key=YVI3cG9VS3EtNVNJR0VtRXVlTkFfemtuM29hNEhB}{\huge \ding{228}}
+    \end{frame}
+    
+%----------------------------------------   	
+
+	\begin{frame}{Deep Learning'in (Derin Öğrenme) Önemi}
+	        \justifying
+	        \color{myred1}\ding{224} \color{black}Tüm dünyayı bu alana yatırım yapmaya iten 2 faktör;\par \vspace{5} \hspace{0.5cm} \color{myred1}\ding{219} \color{black}Hesaplama hızındaki artış\par \vspace{5} \hspace{0.5cm} \color{myred1}\ding{219} \color{black}Mevcut yararlı veri miktarıdır.\par \vspace{25}
+	        \color{myred1}\ding{224} \color{black}Derin öğrenme, Endüstriyel uzmanların, konuşma ve görüntü tanıma ve doğal dil işleme gibi yıllar önce imkansız olan zorlukların üstesinden gelmelerini sağladı.\newline
+            
+
+    \end{frame}
+    
+%----------------------------------------   	
+	
+	\begin{frame}{}
+	        \justifying
+	        \color{myred1}\ding{224} \color{black}Çalışma alanlarının çoğunluğu şu anda gazetecilik, eğlence, çevrimiçi perakende mağaza, otomobil, bankacılık ve finans, sağlık, üretim ve hatta dijital sektör olmak üzere buna bağlı.\par \vspace{25}
+            \color{myred1}\ding{224} \color{black}Derin öğrenme, veri miktarındaki sürekli hızlı artışın yanı sıra donanım alanındaki kademeli gelişme nedeniyle yapay zekanın geleceği olarak da düşünü-
+            lebilir ve bu da daha iyi hesaplama gücüne neden olur.
+    \end{frame}
+%----------------------------------------   
+    
+    \begin{frame}{Deep Learning Neden Bu Kadar Popülerleşti?}
+	    \justifying
+	    \color{myred1}\ding{118}\textbf{Modellerin daha derin ve karmaşık hale gelebilmesi;}\color{black}\par \vspace{2} \hspace{10}Bunları eğitebilen algoritmaların keşfi, bu ağların büyük verilerle eğitilebil-\par \vspace{2} \hspace{10}mesi ve tüm bu sürecin bir PC veya ucuz/erişilebilir bulut servisleriyle ger-\par \vspace{2} \hspace{10}çekleştirilebilir hale gelmesiyle Deep Learning (Derin Öğrenme) bu kadar \par \vspace{2} \hspace{10}popülerleşti.\par \vspace{25}
+	    \color{myred1}\ding{118}\textbf{Veri miktarının artması;}\color{black}\par \vspace{2} \hspace{10}Özellikle İnternet sayesinde devasa boyutlarda veri dijital ortamda üretilir \par \vspace{2} \hspace{10}ve saklanır hale geldi. Derin Öğrenme sistemleri bu büyük veriyi (big data) \par \vspace{2} \hspace{10}kullanmayı başararak avantaj elde ettiler.
+    \end{frame}
+    
+%----------------------------------------   	
+	
+	\begin{frame}
+        \justifying
+        \color{myred1}\ding{118}\textbf{GPU'lar ve işlem gücünün artması;}\color{black}\par \vspace{2} \hspace{10}Grafik işlemciler, paralel hesaplama yapma konusunda özelleşmiş donanım-\par \vspace{2} \hspace{10}lardır.Bu sayede CPU’nun yavaş kaldığı bazı işlemleri çok daha hızlı yapa-\par \vspace{2} \hspace{10}biliyorlar. Derin Öğrenme araştırmacıları işte işlem gücündeki bu artıştan \par \vspace{2} \hspace{10}ve ucuzlamadan yararlanıyor.\par \vspace{25}
+        \color{myred1}\ding{118}\textbf{Derinliğin artması;}\color{black} \par \vspace{2} \hspace{10}İşlem gücünün artması sonucu, daha derin modellerin pratikte kullanıla-\par \vspace{2} \hspace{10}bilmesine imkan doğdu. Derin Öğrenme modelleri çok katmanlı yapılardır.
+    \end{frame}
+    
+%----------------------------------------   
+   
+    \begin{frame}{Derin Öğrenmede Kullanılan Programlama Dilleri}
+        \color{myred1}\ding{118} \color{black}Python \par \vspace{15}
+        \color{myred1}\ding{118} \color{black}R Programming \par \vspace{15}
+        \color{myred1}\ding{118} \color{black}Java \par \vspace{15}
+        \color{myred1}\ding{118} \color{black}Lisp \par \vspace{15}
+        \color{myred1}\ding{118} \color{black}JavaScript
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Derin Öğrenmede Kullanılan Programlama Dilleri}
+        \begin{figure}[!tbp]
+            %\centering
+            \hspace{5}
+            \begin{minipage}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{DL/python.png}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{DL/R.png}
+            \end{minipage}
+            \hspace{5}
+        \end{figure}\par \vspace{20} \hspace{75} 
+        \href{https://photos.google.com/share/AF1QipMfC82m4QzgFzZZjPuv9posGEJgPEJkuwP2fZToUYReOSnAX0R8gG0eqtisITst-A/photo/AF1QipMNKVT8eQu6GUo2-pIaYMqMLo979UZ7A3q_h5Zc?key=VVFPSGRaTy1KckFNS2FGSDFyZjFpX1FxUGRUZTl3}{\huge \ding{111}}\hspace{151} 
+        \href{https://photos.google.com/share/AF1QipPwbaKSsw2BfWQdXD5aE2KNhpguRecGvY7xDulgJ7wx6y_lJ0uUrJ4r3WAk-I_bHg/photo/AF1QipOWTrdR3PkKAxHrNJDNvFRnwb3TRYQ6TTSH8IWN?key=UUhNdFQ5WVpKd21IcmtOQzVCRzlydWlfZnh0dVNR}{\huge \ding{111}}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Derin Öğrenmede Kullanılan Programlama Dilleri}
+        \begin{figure}[!tbp]
+            %\centering
+            \hspace{5}
+            \begin{minipage}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{DL/java.png}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{DL/lisp.png}
+            \end{minipage}
+            \hspace{5}
+        \end{figure}\par \vspace{20} \hspace{75} 
+        \href{https://photos.google.com/share/AF1QipO1FVJE4uQjiFz8hM7OWZW8FihSZx_LLWYd-AckAncNn6xNOKFmuMCR1vuQF80gAw/photo/AF1QipMY_1aNgczLbYTp4UVsEgqpgvolu6D1USbdVXus?key=YnZXalFKS09KdzRyeFZ3UWxKRUI5WDdKMFBLOVpB}{\huge \ding{111}}\hspace{151} 
+        \href{https://photos.google.com/share/AF1QipNKcQ-qyGM5Y1YqH4wIvQ41LGjxneOy6LeAA33BTYenSilHL7OMy6KhrW2p4QB28Q/photo/AF1QipMAR1Az_ivmhGjHDnMOXYCcRR-R1Swu_TzQX8Dt?key=WDM4emFCT1Z6X25vOHVNY29yTWM1SHM2ODk2d2xB}{\huge \ding{111}}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Derin Öğrenmede Kullanılan Programlama Dilleri}
+        \begin{figure}[!tbp]
+            \centering
+            \hspace{5}
+            \begin{minipage}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{DL/JS.png}
+            \end{minipage}
+            \hspace{5}
+        \end{figure}\par \vspace{20} 
+        \centering
+        \href{https://photos.google.com/share/AF1QipPmjhD2FPV1b_kK8W56qpRHsmsPhoCUh9d5ap7Gs-HKg5lVBqWELZG-g3qx-dIRlA/photo/AF1QipOF9GtUWAR1DQvqQGUKYm25-Xe8TJt7sDHBiMju?key=bGF2SFlHTVM4NkJJU0xOUlJyUzdGbWlLYzdpQmJ3}{\huge \ding{111}}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Gelin Biraz İstatistiklere Girelim}
+        \begin{figure}[!tbp]
+            %\centering
+            \hspace{-10}
+            \begin{minipage}[b]{0.38\textwidth}
+                \includegraphics[width=\textwidth]{DL/verim.png}
+            \end{minipage}
+            \hfill\hspace{-30}
+            \begin{minipage}[b]{0.38\textwidth}
+                \includegraphics[width=\textwidth]{DL/maaş.png}
+            \end{minipage}
+            \hfill\hspace{-30}
+            \begin{minipage}[b]{0.38\textwidth}
+                \includegraphics[width=\textwidth]{DL/kolay.png}
+            \end{minipage}
+            \hspace{30}
+        \end{figure}\par \vspace{1} \hspace{50} 
+        \href{https://photos.google.com/share/AF1QipPXVmrY-AEIQcWx2BnhyJ9-V6xW_XVZ_NkfwYae3VlyZ4UVRKiWCTzgIDhKI08zFA/photo/AF1QipPtqZKDiaaHFLr0cdk6YfMPKt38vGoN6uZgGw7T?key=cTNCZVo2RmRsSXI3WUtMNjI3WTFMX2M2djgtNUNB}{\huge \ding{111}}\hspace{90} 
+        \href{https://photos.google.com/share/AF1QipNVVpUsR61PN2jbOxhmQpZKUuKsdl68yhW3u3azgZift7luzmLLqip31aZfynn9XQ/photo/AF1QipOTBMfHdeT_BlJqGX8Ebj93p0o-85YizMdQsDHx?key=ako1eThfSjVCWmZ3WmRhbFZsZTRNVUpSdW54V3dB}{\huge \ding{111}}\hspace{90} 
+        \href{https://photos.google.com/share/AF1QipNXNhUTjWy0LHiWkKpuxjcdnohfNm8CAsSQnR48zGQ4LBcZHjQdZa-2dv_aSbvs6g/photo/AF1QipMC3eg58sTq8NWuvTnI0_QDdVFD_PHNElkQXfK3?key=aHE0RmVDRGE1NWc1SlpHUDkwa210R1owLWRPTlJ3}{\huge \ding{111}}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Derin Öğrenmede Kullanılan Frameworkler}
+        %resim eklemeyi unutma
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.2]{DL/caffe.png}
+            \end{figure}
+            \newline \centering
+            \color{myred1}Şekil 16:\color{black} \textbf{CAFFE}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Derin Öğrenmede Kullanılan Frameworkler}
+	    \begin{figure}
+            \centering
+            \includegraphics[scale=0.4]{DL/torch.png}
+        \end{figure}
+        \vspace{35} \centering
+        \color{myred1}Şekil 17:\color{black} \textbf{TORCH}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Derin Öğrenmede Kullanılan Frameworkler}
+        \begin{figure}
+            \includegraphics[scale=0.25]{DL/theano.png}
+        \end{figure}
+        \vspace{35} \centering
+        \color{myred1}Şekil 18:\color{black} \textbf{THEANO}
+	\end{frame}
+	
+%----------------------------------------   
+    
+    \begin{frame}{Derin Öğrenmede Kullanılan Frameworkler}
+	    \begin{figure}
+            \includegraphics[scale=0.35]{DL/tensorson.png}
+        \end{figure}
+        \newline \centering
+        \color{myred1}Şekil 19:\color{black} \textbf{TENSORFLOW}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{\color{myred1} Tensorflow Kullanan Şirketler}
+	   %-------------------------- resim ------------------------
+        \begin{wrapfigure}{r}{0.60\textwidth}                   %
+        \vspace{-15 pt}                                         %
+        \begin{center}                                          %
+        \includegraphics[width=0.46\textwidth]{DL/all1.png}     %
+        \end{center}                                            %
+        \vspace{-20pt}                                          %
+        \vspace{-10pt}                                          %
+        \end{wrapfigure}                                        %
+       %---------------------------------------------------------
+        \color{myred1} TensorFlow kullanan bazı şirketleri sizin için derledik:\par \vspace{15}
+	        \color{myred1}\ding{118} \color{black}airbnb \par \vspace{5}
+            \color{myred1}\ding{118} \color{black}CocaCola \par \vspace{5}
+            \color{myred1}\ding{118} \color{black}DeepMind \par \vspace{5}
+            \color{myred1}\ding{118} \color{black}GE Healthcare \par \vspace{5}
+            \color{myred1}\ding{118} \color{black}Google \par \vspace{5}
+            \color{myred1}\ding{118} \color{black}İntel \par \vspace{5}
+            \color{myred1}\ding{118} \color{black}Twitter \par \vspace{5}
+            \color{myred1}\ding{118} \color{black}Nersc
+    \end{frame}
+    
+%----------------------------------------     
+   
+    \begin{frame}{Derin Öğrenmede Kullanılan Frameworkler}
+	    \begin{figure}
+    	    \centering
+    	    \includegraphics[scale=0.22]{DL/DL4J.png}
+	    \end{figure}
+	    \vspace{25} \centering
+	    \color{myred1}Şekil 20:\color{black} \textbf{DEEP LEARNING 4J }
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Deep Learning'den Başarı Hikayeleri}
+	    \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-6}
+                %\centering
+                \includegraphics[scale=0.3]{DL/cover2.png}
+            \end{figure}
+        \end{center}
+        \newline
+        \centering
+        Videoyu izlemek için tıklayın\par \vspace{20}
+        \href{https://photos.google.com/share/AF1QipPjSOZdWI1ZCaZZb0FIiywrNDLHBvZarb5pYxNbw6pUtfWngbplQTaDryMAbwRMfw/photo/AF1QipMp-SkwjbHLZgO74DZHOYvLlA_3r6JwRflnBtRb?key=SUZNRmtwaE00d2ttTnY5QTRXLVJIc041M0RmU0tn}{\huge \ding{228}}    
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{Deep Learning'den Başarı Hikayeleri}
+	        \justifying
+	        \color{myred1}\ding{224} \color{black}Yapay zeka insan gibi davranışlar sergileme, sayısal mantık yürütme, hareket, konuşma ve ses algılama gibi birçok yeteneğe sahip yazılımsal ve donanımsal sistemler bütünü olarak tanımlanıyor.\par \vspace{25}
+            \color{myred1}\ding{224} \color{black}Makine öğrenimi (Machine Learning) ve Derin öğrenme (DeepLearning) konuları da yapay zeka teknolojilerinin kapsadığı uygulama alanları olarak öne çıkıyor.
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}
+            \justifying
+            \color{myred1}\ding{224} \color{black}256 Hastanın kalp Mrı Kan testleri 30.000den farklı kalp atışıyla ölçülerek yapılan bir testte 8 yıl içerisinde hastanın kalp krizi geçirme ihtimalinin  hesaplanması amaçlandı.Deney doktorunun tahmininin doğruluk oranı \%50 iken IBM tarafından geliştirilen makinenin doğruluk oranı \%80 olarak sonuçlandı.\par \vspace{25}
+            \begin{figure}[!tbp]
+                %\centering
+                \hspace{-10}
+                \begin{minipage}[b]{0.60\textwidth}
+                    \includegraphics[width=\textwidth]{DL/heart.jpg}
+                \end{minipage}
+            \end{figure}
+            \centering
+            \color{myred1}Şekil 21:\color{black}
+    \end{frame}
+    
+%----------------------------------------   
+    
+    \begin{frame}{}
+        \begin{figure}[h!]
+            \central
+            \includegraphics[scale=0.5]{DL/basari.png}
+        \end{figure}\par 
+        \centering
+        \color{myred1}Şekil 22:\color{black} \textbf{Deep Learning sayesinde kaynak ve hedef olarak belirlenen yüzler bir araya getirilerek gerçeğe yakın yüzler elde edilebiliyor.}
+    \end{frame}
+    
+%----------------------------------------   
+        
+        \begin{frame}{Türkiye'de Derin Öğrenme}
+            \begin{center}
+            \begin{figure}
+                \vspace*{-7mm}
+                \hspace*{-70.5 pt}
+                \centering
+                \includegraphics[scale=0.25]{DL/aselsan.png}
+            \end{figure}
+        \end{center}
+        \end{frame}
+        
+%----------------------------------------   
+    
+    \begin{frame}{Türkiye'de Derin Öğrenme}
+	    %\hspace{130}{\huge ASELSAN}\par \vspace{30}
+	        \justifying
+	        \color{myred1}\ding{224} \color{black}Derin Öğrenme özellikle görüntü ve doğal dil işleme alanlarında kullanılıyor. Böylece silah ve güvenlik sistemleri ile insansız sistemler gibi faaliyet alanlarına yeni teknolojiler kazandırılması, mevcut olanların ise performansının arttırılması amaçlanmaktadır.\par \vspace{20}
+            \color{myred1}\ding{224} \color{black}Yapay zeka ses tanıma ve görüntü işleme gibi uygulama alanları ile ASELSAN’da tüm Sektör Başkanlıkları ve Teknoloji ve Strateji Yönetimi Genel Müdür Yardımcılığının birçok projesi için önem arz ediyor.\par \vspace{5}
+    \end{frame}
+    
+%----------------------------------------      
+   
+    \begin{frame}{Türkiye'de Derin Öğrenme}
+	     \justifying
+	      \begin{figure}
+                    \centering
+                    \includegraphics[scale=0.2]{DL/matlab.png}
+                \end{figure}\vspace{10}
+                \begin{center}
+                    \color{myred1}Şekil 23:
+                \end{center}\color{black}
+	     \color{myred1}\ding{224} \color{black}Mathworks Graphics tarafından geliştirilen MATLAB yazılımı ASELSAN’da kontrol, görüntü işleme, istatistik,optimizasyon, sinir ağları, sayısal işaret işleme, güç sistemleri, genetic algoritma gibi alanları kapsayan tasarım faaliyetlerinde yaygın olarak kullanılıyor.
+    \end{frame}
+    
+%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&   TEŞEKKÜR    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    
+    \begin{frame}
+        \centering
+        \huge Yorum ve görüşleriniz bizim için önemli.Sunum esnasında aklınıza takılan sorular varsa bunları duymak ve elimizden geldiğince yardımcı olmak isteriz.\textbf{\color{myred1}ALOHA\color{black}} olarak bizleri dinlemiş olduğunuz için ve ilginizden dolayı\par TEŞEKKÜR EDERİZ...
+    \end{frame}
+    
+%----------------------------------------   KAYNAKÇA
+    
+    \begin{frame}{Kaynaklar}
+        \color{myred1}\ding{224} \color{black} \href{https://www.csee.umbc.edu/courses/471/papers/turing.pdf}{https://www.csee.umbc.edu}\hspace{21}
+        \color{myred1}\ding{224} \color{black} \href{https://medium.com/@fahrettinf/4-1-1-yapay-sinir-a\%C4\%9Flar\%C4\%B1-86f0440f85c2}{https://medium.com}\par\vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://www.nvidia.com/en-us/deep-learning-ai}{https://www.nvidia.com}\hspace{38}
+        \color{myred1}\ding{224} \color{black} \href{https://kod5.org/yapay-sinir-aglari-ysa-nedir/}{https://kod5.org}\par \vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{http://www.derinogrenme.com/2017/03/04/yapay-sinir-aglari/}{http://www.derinogrenme}\hspace{30}
+        \color{myred1}\ding{224} \color{black} \href{https://dergipark.org.tr/en/download/article-file/165799}{https://dergipark.org.tr}\par
+        \hspace{12}\href{http://www.derinogrenme.com/2017/03/04/yapay-sinir-aglari/}{.com}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://tr.wikipedia.org/wiki/Yapay\_sinir\_a\%C4\%9Flar\%C4\%B1}{https://tr.wikipedia.org}\hspace{42}
+        \color{myred1}\ding{224} \color{black} \href{https://dergipark.org.tr/en/download/article-file/66549}{https://dergipark.org.tr}\par\vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://www.hostingdergi.com.tr/yapay-zeka-ve-sinir-aglari/}{https://www.hostingdergi}\hspace{33}
+        \color{myred1}\ding{224} \color{black} \href{https://ieeexplore.ieee.org/abstract/document/7586590}{https://ieeexplore.ieee.org}\par
+        \hspace{12}\href{https://www.hostingdergi.com.tr/yapay-zeka-ve-sinir-aglari/}{.com.tr}\par
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://dergipark.org.tr/en/download/article-file/596690}{ https://dergipark.org.tr}\hspace{43}
+        \color{myred1}\ding{224} \color{black} \href{https://dl.acm.org/doi/abs/10.1145/2976749.2978318}{https://dl.acm.org}\par\vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://elyadal.org/pivolka/06/PiVOLKA_06_05.pdf}{https://elyadal.org}\hspace{65}
+        \color{myred1}\ding{224} \color{black} \href{https://www.annualreviews.org/doi/abs/10.1146/annurev-biodatasci-080917-013343}{https://www.annualreviews.org}\par\vspace{15}
+    \end{frame}
+    
+%----------------------------------
+    
+    \begin{frame}{KAYNAKLAR}
+
+        \color{myred1}\ding{224} \color{black} \href{https://www.duomly.com/}{https://www.duomly.com/}\hspace{32}\color{myred1}\ding{224} \color{black} \href{https://www.tensorflow.org/}{https://www.tensorflow.org/}\par \vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://medium.com/}{https://medium.com/}\hspace{53}\color{myred1}\ding{224} \color{black} \href{https://deeplearning4j.org/}{https://deeplearning4j.org/}\par \vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://www.youtube.com/watch?v=qk1RjRLIAq4&t=1012s}{https://www.youtube.com}\hspace{30}
+        \color{myred1}\ding{224} \color{black} \href{https://www.volvocars.com/tr}{https://www.volvocars.com/tr}\par \vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://www.youtube.com/channel/UCkkgrhDCJheXQNIFqUVw0_g}{https://www.youtube.com}\par \vspace{15}
+        \color{myred1}\ding{224} \color{black} \href{http://www.derinogrenme.com}{http://www.derinogrenme.com}\par \vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{https://caffe.berkeleyvision.org/}{https://caffe.berkeleyvision.org/}\par \vspace{15}
+        
+        %----------------------------------------------------------------------------------------------------------------------------------------------
+        
+        \color{myred1}\ding{224} \color{black} \href{http://torch.ch/}{http://torch.ch/}\par \vspace{15}
+         \vspace{15}
+        
+\end{frame}
+	
+	
+	% [allowframebreaks] özelliği eğer sayfadaki metin 1 sayfayı aşarsa otomatik sayfalara bölmeyi sağlar
+	
+
+\end{document}      % Belge Sonu
+
+
+
+                    
+

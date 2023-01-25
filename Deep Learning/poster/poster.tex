@@ -1,0 +1,185 @@
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%               Libraries             %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[isoft]{ssltexposter}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}                            
+\usepackage{ragged2e}                           
+\usepackage{lipsum}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{subfig} 
+\usepackage{amsmath} 
+\usepackage{textcomp} 
+\usepackage{url}  
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc} % Türkçe karakterler
+\usepackage[T1]{fontenc} % Türkçe heceleme için
+\usepackage[turkish,shorthands=:!]{babel} % Türkçe bölüm, şekil, tablo vb. isimler
+
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%               Configs               %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Choose one of the section color {ufglhblue | ufgdkblue | dkblue | black | gold}
+\setsectioncolor{red!50!black}
+
+% Define width of the rule or hide it by setting 0pt or commenting the command 
+\setcolumnseprule{0pt}
+
+% Inform the paths to the logo files or leave empty one or both parameters. 
+% There are three options [ T | M | B ] to positioning them.
+\setlogos[T]{logo}{logobm}
+% Choose one of the background options {1 | 2 | 3}. 
+% Actually, one can select any graphic file in backgrounds directory. 
+\setbackground{acikton}
+
+% Resize the title to keep it in two lines // {font size}{line height}
+\settitlesize{90pt}{74pt}
+
+% Resize the font of the content. Default {32pt}{38pt} // {font size}{line height}
+\setcontentfontesize{32pt}{40pt}
+
+% Resize the font of the emails. Default {26pt}{32pt} // {font size}{line height}
+\setemailfontesize{42pt}{40pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    General info     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------   TITLE   ---------------------------------------------
+
+\vspace{-30pt}
+\title{KAN YOLUYLA KANSER TESPİTİ} 
+
+%--------------------------------------   AUTHORS   -------------------------------------------
+
+\author{\ding{118} Arda Yakakayı, 19253519 \ding{118}\\}
+
+%--------------------------------------   DEPARTMENT   ----------------------------------------
+
+\department{Bilgisayar Mühendisliği Bölümü \\ Pamukkale Üniversitesi}
+\vspace{20pt}
+
+%--------------------------------------   E-MAIL   --------------------------------------------
+
+\email{ayakakayi17@posta.pau.edu.tr}
+
+%----------------------------------------------------------------------------------------------
+
+\conference{\vspace{1cm}{CENG 104 Bilgisayar Müehndisliği Semineri Proje Sunumları \hspace{45cm} 22.05.2020}}
+
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%           End Configs               %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                
+\pagestyle{fancy}
+\begin{document}
+\begin{poster}
+                    
+                    
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%             Begin poster            %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    ÖZET    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{abstract}
+       \normalsize
+      Bu projede  kanser türlerinden\cite{cancertypes} herhangi birine yakalanmış olan kişi ya da kişilerin tanı konma süresini kısaltarak tedaviye hemen başlanmasını sağlamaktır.Böylece hasta olan kişi ya da kişiler o hastalığın hangi evresindeyse o evre daha fazla ilerlemeden durdurulabilsin ya da yavaşlatılabilsin.
+    \end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{Giriş}
+    Günümüzde kanser teşhis ve tedavisi için  yeni bulgulara rağmen hastalık teşhisindeki gecikmeler\cite{hardtodetect}yüzünden çok sayıda insanı kaybediyoruz. 
+    Hatta yıllara göre ölüm ve vaka sayılarına bakacak olursak bu oran artmakta ve hiçbir dönem yavaşlamamaktadır.Bu hastalığa yakalanan kişiler için erken teşhisin ne kadar önemli olduğunu ve ne kadar erken teşhis edilirse o kadar çabuk tedaviye erken başlanılacağından biz de bu projede bunu gaye edindik.Bu projeyle evde hızlı bir kan testi yapılarak siz de var olan kanser ve onun türünü saptamak bu projenin amacıdır.Projemiz de Derin Öğrenme(Deep Learning) ve onu destekleyen teknolojiler kullanılmaktadır.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Metodoloji}
+
+%--------------------------------   Subsection 1   --------------------------------------------
+
+    \subsection{Cihazın Çalışma Dizaynı ve Kanserin Teşhisi}
+        
+       Cihazımızın çalışma dizaynı kan sayım cihazlarından esinlenmiştir.Kan sayım  cihazları çok küçük miktarda kanı inceleyerek en az 19 parametrenin ölçümü ile kan sayımı yaparak sonuçlarını bildirir.Bizim tasarladığımız cihazımız ise hastadan kan alınır ve kanın içerisinde normal hücrelerin boyutunda olmayan, düzensiz şekilli hücre saptanır.Bu hücrenin hangi kanser hücresine ait olduğunu bulmak için ise daha önceden kansere yakalanmış birçok kişiden veriler alınır.Bu veriler kanser hücrelerinin boyutları, şekilleriyle alakalıdır.Tüm bu veriler cihaza öğretilir ve cihaz onun hangi kanser hücresine ait olduğunu saptar.
+
+        \vspace{5pt}
+        \begin{figure}
+            \hspace{0.8cm}
+            \begin{subfigure}[a]{0.2\textwidth}
+                \includegraphics[width=\textwidth]{Sources/hucre1.png}
+                \caption{{\tiny Akciğer Kanser Hücresi}}
+            \end{subfigure}
+            \hspace{2.8cm}
+            \begin{subfigure}[a]{0.2\textwidth}
+                \includegraphics[width=\textwidth]{Sources/hucre2.png}
+                \caption{{\tiny Kalın bağırsak kanser hücresi}}
+            \end{subfigure}
+        \end{figure}\vspace{-10}
+        
+%--------------------------------   Subsection 2   --------------------------------------------
+
+    \subsection{Kanser Teşhisi Doğrulandıktan Sonra}
+        
+           Cihaz kandaki anormal olan hücreyi veri tabanını tarayarak hangi kanser türüne ait olduğunu saptar ve tedavi kısmına geçilir.
+        Tedavi kısmında yine aynı şekilde bu hastalığa yakalanan kişilerden, o kişiye uygulanan tedavi yöntemleri ve bu yöntemlerin başarı oranları da cihaza öğretilir ve doktor ile beraber kişiye en uygun tedavi yöntemi bulunmaya çalışılır.Cihazın tavsiyelerini kullanıcı tek başına uygulayamaz. Cihazın bu noktada görevi kanser türünü  tespit ettikten sonra o kişiyi doktora yönlendirmektir.Yönlendirme yapıldıktan sonra kişinin verileri cihazda bulunduğundan bu veriler aynı zamanda doktor bilgisayarına da aktarılmalıdır.
+
+        \hspace{2pt}Cihaz bu tedavi süreci boyunca kişinin verilerini depoladığından sürekli kişiyi takibe alır.Yani bir sonraki kan testinde kişide var olan kanser hücresinin boyutuna, şekline,düzenine bakarak kişide nasıl bir ilerleme olduğunu kaydeder. Eğer uygulanan yöntem kişiye iyi gelmiyorsa ; yani o kanser hücresinde herhangibir değişiklik olduğunu görmemişse cihaz, o zaman hastaya geri dönüt vererek doktoruyla tekrar görüşmesi gerektiğini söyler.
+
+            \vspace{1cm}
+            \begin{figure}
+                \centering
+                \captionsetup{type=figure}
+                \includegraphics[scale=2.4]{Sources/network.png}
+                \caption{Derin öğrenmenin teşhiste izlediği yol}
+                \label{fig:ornek2}
+            \end{figure}
+            \vspace{1cm}
+            
+%--------------------------------   Subsection 3   --------------------------------------------    
+    \subsection{Tedavi Bittikten Sonra}
+             Kişinin tedavisi tamamlandıktan sonra kişiden belli zaman aralıklarında kan alınarak test yapılmaya devam edilir. Çünkü bu hastalığı geçiren kişilerde bazen kanser hücresi kendini yenileyip tekrar ortaya çıkabilmektedir ve ortaya çıkarken bu sefer daha kötü huylu olabilmektedir.Bu nedenle belli zamanlar da test yapılması kişi için hem tedbirdir hemde önem teşkil etmektedir.
+             
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{Bulgular}%
+                
+            Kanserin erken teşhisi, kanserin tedavi başarısını arttırmaktadır.Kanserin erken teşhisi için kişinin herhangi bir yakınması olmasa dahi ; rahim ağzı, meme,kalın bağırsak ve prostat kanserleri için tarama testleri yaptırılması önem taşımaktadır.Şu anda kanseri belirlemeye yönelik en iyi yöntemimiz, laboratuvar analizi için tümör dokusu üzerinden küçük bir parçanın kesilmesiyle yapılan biyopsidir.Ancak biyopsiler genellikle ağrılıdır ve tümör dokusunun yayılmasına neden olur.Buna alternatif olarak hastadan alınan bir tüp kanın incelenmesiyle kanser taramasının yapılmasıdır.
+
+
+            \begin{figure}
+                \centering
+                \captionsetup{type=figure}
+                \includegraphics[scale=2.4]{Sources/2.1.png}
+                \caption{Tüm kanser türleri için dünya çapındaki ölüm oranları\cite{DatasaboutCancer}}
+            \end{figure}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     SECTION 4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \section{Sonuç}
+    
+        Biliyoruz ki Derin Öğrenme Teknolojileri veri zenginliği arttıkça daha başarılı duruma gelmektedir. Zamanla öğrenen ve gelişen veri tabanı hastalığın erken teşhisi ve tedavisi konusunda git gide daha yüksek oranda başarı sağlamaktadır.Çağımızın vebası olan kanseri erken teşhisler ve doğru tedavi yöntemleriyle büyük ölçüde teknolojiyi de kullanarak engelleyebiliriz.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%              KAYNAKCA               %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        \bibliographystyle{abbrv}
+        \bibliography{Kaynak}
+    
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%               End poster            %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \end{poster}
+        \end{document}
+
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%           Prepared By ALOHA         %%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  

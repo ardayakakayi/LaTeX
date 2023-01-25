@@ -1,0 +1,14 @@
+#Image Files
+*.png
+*.jpg
+
+#Video Files
+*.mp4
+
+#build files
+*.bib
+*.cls
+
+backgrounds/
+sources/
+Sources/
